@@ -10,6 +10,11 @@ public class WordRepetitionMapCreator {
 
     public Map<String, Integer> createWordRepetitionMap(String sentence) {
         Map<String, Integer> repetitionMap = new HashMap<>();
+
+        if (sentence.isEmpty()) {
+            return repetitionMap;
+        }
+
         String[] words = sentence.split(PUNCTUATION_MARKS_REGEX);
         List<String> wordsLowerCase = Arrays.stream(words).map(word -> word.toLowerCase()).collect(Collectors.toList());
         Set<String> uniqueWordsLowerCase = new HashSet<>(wordsLowerCase);
